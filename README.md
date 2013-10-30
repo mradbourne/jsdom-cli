@@ -8,16 +8,28 @@ A mini REPL based on jsdom.
 USAGE
 -----
 
-node jsdom-cli http://example.com
+`jsdom-cli http://example.com` or just `jsdom-cli`
+
 
 API
 ---
 
 ### open(url)
 
-Open a new url
+Open a new url `> open("http://google.com")`
 
 ### inject(filename)
 
-Inject javascript. Ex: inject('./jquery.js')
+Inject javascript. `> inject("./lib/underscore.js")`
+
+### jQueryify
+
+Inject the lastest version of jquery
+
+    > jQueryfiy
+    undefined
+    > window.jQuery
+    ...
+
+
 
