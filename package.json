@@ -1,5 +1,14 @@
 {
   "name": "jsdom-cli",
+  "description": "A mini REPL using a jsdom based environment",
+  "keywords": ["jsdom", "repl", "cli"],
+  "author": "Nicolas Lupien",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/niclupien/jsdom-cli.git"
+  },
+  "licence": "MIT",
+  "main": "lib/index",
   "version": "0.0.1",
   "dependencies": {
     "jsdom": "~0.8.8"
