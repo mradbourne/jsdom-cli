@@ -8,8 +8,10 @@ A mini REPL based on jsdom.
 USAGE
 -----
 
-    jsdom-cli http://google.com
-    > document.tile
+    $ jsdom-cli http://google.com
+    > var title = document.title
+    undefined
+    > title
     Google
 
 API
