@@ -1,6 +1,6 @@
 {
   "name": "jsdom-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A mini REPL using a jsdom based environment",
   "keywords": ["jsdom", "repl", "cli"],
   "author": "Nicolas Lupien",
