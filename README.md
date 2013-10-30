@@ -3,6 +3,8 @@ jsdom-cli
 
 A mini REPL based on jsdom.
 
+    npm install -g jsdom-cli
+
 USAGE
 -----
 
