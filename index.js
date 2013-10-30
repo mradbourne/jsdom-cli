@@ -31,7 +31,7 @@ var execute = function(code) {
   }
 }
 
-var prompt = function() {
+var prompt = exports.prompt = function() {
   rl.question("> ", function(line) {
     execute(line);
     prompt();
@@ -41,5 +41,3 @@ var prompt = function() {
 if ((sandbox.url = process.argv[2])) {
   sandbox.open(sandbox.url);
 }
-
-prompt();
