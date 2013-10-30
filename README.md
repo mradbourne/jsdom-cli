@@ -8,7 +8,9 @@ A mini REPL based on jsdom.
 USAGE
 -----
 
-node jsdom-cli http://example.com
+    jsdom-cli http://google.com
+    > document.tile
+    Google
 
 API
 ---
