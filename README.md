@@ -10,7 +10,6 @@ USAGE
 
 `jsdom-cli http://example.com` or just `jsdom-cli`
 
-
 API
 ---
 
