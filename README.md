@@ -21,11 +21,11 @@ Open a new url `> open("http://google.com")`
 
 Inject javascript. `> inject("./lib/underscore.js")`
 
-### jQueryify
+### jQueryify()
 
 Inject the lastest version of jquery
 
-    > jQueryfiy
+    > jQueryfiy()
     undefined
     > window.jQuery
     ...
