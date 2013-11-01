@@ -1,25 +1,46 @@
-var readline = require('readline')
-  , jsdom = require('jsdom')
-  , vm = require('vm')
-  , fs = require('fs')
-  , sandbox = {console: console, setTimeout: setTimeout, src: [], 
-               jQueryify: function(){jsdom.jQueryify(sandbox.window)}}
+var readline = require('readline');
+var jsdom = require('jsdom');
+var vm = require('vm');
+var fs = require('fs');
+var sandbox = {console: console, setTimeout: setTimeout, 
+               jQueryify: function(){jsdom.jQueryify(sandbox.window)}};
+var src;
 
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-sandbox.open = function(url) {
-  jsdom.env({
-    url: url, 
-    src: sandbox.src,
+console.originalLog = console.log;
+
+console.log = function(object) {
+  if (typeof object === 'object' && object.length && object[0].outerHTML)
+    for(var i = 0; i < object.length; i++)
+      console.originalLog(object[i].outerHTML);
+  else if (typeof object === 'object' && object.outerHTML)
+    console.originalLog(object.outerHTML)
+  else
+    console.originalLog(object)
+}
+
+sandbox.open = function(uri) {
+  var config = {
+    src: src,
     done: function(err, _window) {
       if (err) return console.log(err);
       sandbox.window = _window;
       sandbox.document = _window.document;
+      sandbox.prototype = _window;
     }
-  });
+  };
+
+  if (uri.indexOf('http://') == -1) {
+    config.file = uri;
+  } else {
+    config.url = uri;
+  }
+
+  jsdom.env(config);
 };
 
 sandbox.inject = function(file) {
@@ -42,7 +63,7 @@ var execute = function(code) {
   } catch(error) {
     console.log('ERROR: ' + error);
   }
-}
+};
 
 var prompt = exports.prompt = function() {
   rl.question("> ", function(line) {
