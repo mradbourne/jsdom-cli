@@ -7,8 +7,7 @@ var inspector = require('jsdom-inspector');
 
 var src;
 var stopExecution = false;
-var sandbox = {console: console, setTimeout: setTimeout, require: require,
-               jQueryify: function(){jsdom.jQueryify(sandbox.window)}};
+var sandbox = {console: console, setTimeout: setTimeout, require: require, $: '', jQuery: ''};
 
 var rl = readline.createInterface({
   input: process.stdin,
@@ -37,6 +36,15 @@ sandbox.open = function(data) {
       prompt();
   });
 };
+
+sandbox.jQueryify = function() {
+  stopExecution = true;
+  jsdom.jQueryify(sandbox.window, function(window, $) {
+    sandbox.window = window;
+    sandbox.$ = $;
+    prompt();
+  });
+}
 
 sandbox.edit = function() {
   stopExecution = true;
