@@ -30,5 +30,13 @@ Inject the lastest version of jquery
     > window.jQuery
     ...
 
+### edit()
+
+Edit the DOM with the default HTML editor and reload it
+
+### inspect()
+
+Inspect and navigate the DOM like in the browsers dev tools
+
 
 
