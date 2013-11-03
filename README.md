@@ -27,7 +27,7 @@ Inject the lastest version of jquery
 
     > jQueryfiy()
     undefined
-    > window.jQuery
+    > $('div')
     ...
 
 ### edit()
