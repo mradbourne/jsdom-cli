@@ -25,7 +25,7 @@ Inject javascript. `> inject("./lib/underscore.js")`
 
 Inject the lastest version of jquery
 
-    > jQueryfiy()
+    > jQueryify()
     undefined
     > $('div')
     ...
